@@ -1,0 +1,30 @@
+{
+  "name": "buff",
+  "version": "0.1.0",
+  "description": "PostCSS tool for identifying properties in your stylesheets that cause re-layouts, repaints, or re-composites",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava ./tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doot0/buff.git"
+  },
+  "keywords": [
+    "css",
+    "jank",
+    "performance"
+  ],
+  "author": "@doot0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doot0/buff/issues"
+  },
+  "homepage": "https://github.com/doot0/buff#readme",
+  "devDependencies": {
+    "ava": "^0.15.2"
+  },
+  "dependencies": {
+    "css": "^2.2.1"
+  }
+}
