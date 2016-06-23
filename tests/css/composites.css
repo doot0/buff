@@ -1,0 +1,19 @@
+.has-init-comp {
+  bottom: 0;
+}
+
+.has-subsequent-comp {
+  bottom: 0;
+}
+
+.has-no-init-comp {
+  /* Every CSS prop always causes comp on initial render */
+}
+
+.has-no-subsequent-comp {
+  border-collapse: separate;
+}
+
+.has-init-subsequent-comp {
+  border-bottom-width: medium;
+}

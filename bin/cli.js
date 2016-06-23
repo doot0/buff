@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-let buff = require('../index.js')
+'use strict';
+const buff = require('../index.js');
+const path = process.argv[2];
 
-buff(process.argv[2], true, function(style) {
-  console.log(style)
-})
+buff(path, true, function(style) {
+  console.log(style);
+});
