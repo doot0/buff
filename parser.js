@@ -9,18 +9,7 @@ function parser(str, cb) {
   const parsed = css.parse(str);
 
   if (parsed.stylesheet) {
-
-    identifyMatches(layoutData, parsed.stylesheet);
-
-    const sheetRules = parsed.stylesheet.rules;
-
-    // for (var i = 0; i < sheetRules.length; i++) {
-    //   for (var ii = 0; ii < sheetRules[i].declarations.length; ii++) {
-    //     const property = sheetRules[i].declarations[ii].property;
-    //     console.log(property);
-    //   }
-    // }
-
+    console.log(identifyMatches(layoutData, parsed.stylesheet));
   } else {
     throw 'Could not parse stylesheet.';
   }
@@ -29,17 +18,48 @@ function parser(str, cb) {
 
 function identifyMatches(data, stylesheet) {
 
-  const match = [];
+  const matches = [];
 
-  match.push();
+  const keyData = Object.keys(data['data']);
+  const dataLength = keyData.length;
 
-  // generate match array
+  const stylesheetData = stylesheet['rules'];
+  const stylesheetLength = stylesheetData.length;
 
-  // iterate over data
-  // store current triggerrop
-    // iterate over stylesheet
-    // store current styleprop
-    // compare triggerprop with styleprop
-    // if equal, gather line #, style prop, and layout/paint/composite
+  const triggerProps = [];
+  const declarations = [];
+
+  const declarationList = [];
+
+  for (var i = 0; i < dataLength; i++) {
+    const triggerProperty = keyData[i];
+    triggerProps.push(triggerProperty);
+  }
+
+  for (var ruleIndex = 0; ruleIndex < stylesheetLength; ruleIndex++) {
+    const ruleDeclaration = stylesheetData[ruleIndex]['declarations'];
+    declarations.push(ruleDeclaration);
+  }
+
+  for (var ii = 0; ii < declarations.length; ii++) {
+    for (var iii = 0; iii < declarations[ii].length; iii++) {
+      if (declarations[ii][iii].type === 'declaration') {
+        declarationList.push(declarations[ii][iii]);
+      }
+    }
+  }
+
+  for (var dec = 0; dec < declarationList.length; dec++) {
+    const finalDeclaration = declarationList[dec];
+
+    for (var trigIndex = 0; trigIndex < triggerProps.length; trigIndex++) {
+      const trigger = triggerProps[trigIndex];
+      if (finalDeclaration.property == trigger) {
+        matches.push(finalDeclaration);
+      }
+    }
+  }
+
+  return matches;
 
 }

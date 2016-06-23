@@ -5,13 +5,9 @@ There are [three common types](#why) of rendering update that cause UI jank on t
 
 ## Contents
 - [Usage](#usage)
-- [CLI Usage](#cli)
 - [Why?](#why)
 
 ## Usage
-WIP.
-
-## CLI Usage
 WIP.
 
 ## Why?

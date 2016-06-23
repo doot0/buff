@@ -3,6 +3,6 @@
 const buff = require('../index.js');
 const path = process.argv[2];
 
-buff(path, true, function(style) {
+buff(process.argv[2], true, function(style) {
   console.log(style);
 });
