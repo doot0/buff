@@ -4,11 +4,15 @@
 There are [three common types](#why) of rendering update that cause UI jank on the web, so having visibility on how often they occur in your styles can give you some insight on potential causes of jank you need to keep on top of.
 
 ## Contents
-- [Usage](#usage)
-- [Why?](#why)
+ - [Usage](#usage)
+ - [Why?](#why)
+ - [TODO](#todo)
+ - [Changelog](./changelog.md)
 
 ## Usage
 WIP.
 
 ## Why?
 WIP.
+
+## TODO

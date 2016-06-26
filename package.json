@@ -1,7 +1,7 @@
 {
-  "name": "buff",
-  "version": "0.1.0",
-  "description": "PostCSS tool for identifying properties in your stylesheets that cause re-layouts, repaints, or re-composites",
+  "name": "buff-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for identifying properties in your stylesheets that cause re-layouts, repaints, or re-composites",
   "main": "index.js",
   "scripts": {
     "test": "ava ./tests/test.js"
@@ -23,11 +23,7 @@
   "homepage": "https://github.com/doot0/buff#readme",
   "devDependencies": {
     "ava": "^0.15.2",
-    "eslint": "^2.13.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.9.2",
-    "eslint-plugin-jsx-a11y": "^1.5.3",
-    "eslint-plugin-react": "^5.2.2"
+    "eslint": "^2.13.1"
   },
   "dependencies": {
     "cli-table": "^0.3.1",
