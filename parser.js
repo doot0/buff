@@ -2,21 +2,19 @@
 
 module.exports = parser;
 
-function parser(str, cb) {
+function parser(str, callback) {
 
   const layoutData = require('./data/data.json');
   const css = require('css');
   const parsed = css.parse(str);
 
   if (parsed.stylesheet) {
-    console.log(identifyMatches(layoutData, parsed.stylesheet));
-  } else {
-    throw 'Could not parse stylesheet.';
+    identifyMatches(layoutData, parsed.stylesheet, callback);
   }
 
 }
 
-function identifyMatches(data, stylesheet) {
+function identifyMatches(data, stylesheet, callback) {
 
   const matches = [];
 
@@ -29,37 +27,33 @@ function identifyMatches(data, stylesheet) {
   const triggerProps = [];
   const declarations = [];
 
-  const declarationList = [];
-
+  /* Gather all the props from the trigger update data */
   for (var i = 0; i < dataLength; i++) {
     const triggerProperty = keyData[i];
     triggerProps.push(triggerProperty);
   }
 
+  /* Gather and filter the stylesheet data by rule only */
   for (var ruleIndex = 0; ruleIndex < stylesheetLength; ruleIndex++) {
     const ruleDeclaration = stylesheetData[ruleIndex]['declarations'];
-    declarations.push(ruleDeclaration);
-  }
-
-  for (var ii = 0; ii < declarations.length; ii++) {
-    for (var iii = 0; iii < declarations[ii].length; iii++) {
-      if (declarations[ii][iii].type === 'declaration') {
-        declarationList.push(declarations[ii][iii]);
-      }
+    if (stylesheetData[ruleIndex].type == 'rule') {
+      declarations.push(ruleDeclaration);
     }
   }
 
-  for (var dec = 0; dec < declarationList.length; dec++) {
-    const finalDeclaration = declarationList[dec];
+  /* Iterate through the gathered props and match with trigger data */
+  for (var decIndex = 0; decIndex < declarations.length; decIndex++) {
+    const declarationGroup = declarations[decIndex];
 
-    for (var trigIndex = 0; trigIndex < triggerProps.length; trigIndex++) {
-      const trigger = triggerProps[trigIndex];
-      if (finalDeclaration.property == trigger) {
-        matches.push(finalDeclaration);
+    declarationGroup.forEach(function(group) {
+      const property = group.property;
+      if (triggerProps.indexOf(property) > -1) {
+        matches.push(group);
       }
-    }
+    });
+
   }
 
-  return matches;
+  callback(matches);
 
 }

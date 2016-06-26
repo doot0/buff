@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const parser = require('./parser.js');
+const print = require('./print.js');
 
 module.exports = function(filePath, callback) {
 
@@ -12,7 +13,7 @@ module.exports = function(filePath, callback) {
   const file = fs.readFileSync(resolvedPath).toString();
 
   parser(file, function(result) {
-    return callback(result);
+    print(result, callback);
   });
 
 };
