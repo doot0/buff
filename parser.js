@@ -18,10 +18,10 @@ function identifyMatches(data, stylesheet, callback) {
 
   const matches = [];
 
-  const keyData = Object.keys(data['data']);
+  const keyData = Object.keys(data.data);
   const dataLength = keyData.length;
 
-  const stylesheetData = stylesheet['rules'];
+  const stylesheetData = stylesheet.rules;
   const stylesheetLength = stylesheetData.length;
 
   const triggerProps = [];
@@ -35,7 +35,7 @@ function identifyMatches(data, stylesheet, callback) {
 
   /* Gather and filter the stylesheet data by rule only */
   for (var ruleIndex = 0; ruleIndex < stylesheetLength; ruleIndex++) {
-    const ruleDeclaration = stylesheetData[ruleIndex]['declarations'];
+    const ruleDeclaration = stylesheetData[ruleIndex].declarations;
     if (stylesheetData[ruleIndex].type == 'rule') {
       declarations.push(ruleDeclaration);
     }
