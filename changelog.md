@@ -1,3 +1,10 @@
+## 1.1.0 (2016-06-26)
+
+##### Bugfixes:
+ - Fixes missing bin-path for npm package
+
+---
+
 ## 1.0.0 (2016-06-26)
 
 ##### Performance:

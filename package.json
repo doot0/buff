@@ -1,8 +1,11 @@
 {
   "name": "buff-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CLI tool for identifying properties in your stylesheets that cause re-layouts, repaints, or re-composites",
   "main": "index.js",
+  "bin" : {
+    "buff-cli" : "./bin/cli.js"
+  },
   "scripts": {
     "test": "ava ./tests/test.js"
   },
