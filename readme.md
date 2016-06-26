@@ -6,13 +6,14 @@ There are [three common types](#why) of rendering update that cause UI jank on t
 ## Contents
  - [Usage](#usage)
  - [Why?](#why)
- - [TODO](#todo)
  - [Changelog](./changelog.md)
 
 ## Usage
-WIP.
+
+1. `npm install -g buff-cli`
+2. `buff-cli "path/to/file.css"`
+
+That's it. 😎
 
 ## Why?
 WIP.
-
-## TODO
