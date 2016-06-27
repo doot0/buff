@@ -19,53 +19,53 @@ function print(results, callback) {
 
 function buildRowData(data) {
   const prop = data.property;
-  const line = data.position['start'].line;
+  const line = data.position.start.line;
 
   const propertyData = triggerData.data[prop];
-  const initialData = propertyData['initial'];
-  const updateData = propertyData['change'];
+  const initialData = propertyData.initial;
+  const updateData = propertyData.change;
 
-  const blinkInit = initialData['blink'];
-  const geckoInit = initialData['gecko'];
-  const webkitInit = initialData['webkit'];
-  const edgeInit = initialData['edgehtml'];
+  const blinkInit = initialData.blink;
+  const geckoInit = initialData.gecko;
+  const webkitInit = initialData.webkit;
+  const edgeInit = initialData.edgehtml;
 
-  const blinkSub = updateData['blink'];
-  const geckoSub = updateData['gecko'];
-  const webkitSub = updateData['webkit'];
-  const edgeSub = updateData['edgehtml'];
+  const blinkSub = updateData.blink;
+  const geckoSub = updateData.gecko;
+  const webkitSub = updateData.webkit;
+  const edgeSub = updateData.edgehtml;
 
-  const blinkLayoutInit = blinkInit['layout'];
-  const blinkPaintInit = blinkInit['paint'];
-  const blinkCompInit = blinkInit['composite'];
+  const blinkLayoutInit = blinkInit.layout;
+  const blinkPaintInit = blinkInit.paint;
+  const blinkCompInit = blinkInit.composite;
 
-  const geckoLayoutInit = geckoInit['layout'];
-  const geckoPaintInit = geckoInit['paint'];
-  const geckoCompInit = geckoInit['composite'];
+  const geckoLayoutInit = geckoInit.layout;
+  const geckoPaintInit = geckoInit.paint;
+  const geckoCompInit = geckoInit.composite;
 
-  const webkitLayoutInit = webkitInit['layout'];
-  const webkitPaintInit = webkitInit['paint'];
-  const webkitCompInit = webkitInit['composite'];
+  const webkitLayoutInit = webkitInit.layout;
+  const webkitPaintInit = webkitInit.paint;
+  const webkitCompInit = webkitInit.composite;
 
-  const edgeLayoutInit = edgeInit['layout'];
-  const edgePaintInit = edgeInit['paint'];
-  const edgeCompInit = edgeInit['composite'];
+  const edgeLayoutInit = edgeInit.layout;
+  const edgePaintInit = edgeInit.paint;
+  const edgeCompInit = edgeInit.composite;
 
-  const blinkLayoutSub = blinkSub['layout'];
-  const blinkPaintSub = blinkSub['paint'];
-  const blinkCompSub = blinkSub['composite'];
+  const blinkLayoutSub = blinkSub.layout;
+  const blinkPaintSub = blinkSub.paint;
+  const blinkCompSub = blinkSub.composite;
 
-  const geckoLayoutSub = geckoSub['layout'];
-  const geckoPaintSub = geckoSub['paint'];
-  const geckoCompSub = geckoSub['composite'];
+  const geckoLayoutSub = geckoSub.layout;
+  const geckoPaintSub = geckoSub.paint;
+  const geckoCompSub = geckoSub.composite;
 
-  const webkitLayoutSub = webkitSub['layout'];
-  const webkitPaintSub = webkitSub['paint'];
-  const webkitCompSub = webkitSub['composite'];
+  const webkitLayoutSub = webkitSub.layout;
+  const webkitPaintSub = webkitSub.paint;
+  const webkitCompSub = webkitSub.composite;
 
-  const edgeLayoutSub = edgeSub['layout'];
-  const edgePaintSub = edgeSub['paint'];
-  const edgeCompSub = edgeSub['composite'];
+  const edgeLayoutSub = edgeSub.layout;
+  const edgePaintSub = edgeSub.paint;
+  const edgeCompSub = edgeSub.composite;
 
   var finalBlinkInitResult = 'B: ';
   var finalBlinkSubResult = 'B: ';
@@ -108,15 +108,19 @@ function buildRowData(data) {
   if (edgePaintSub) finalEdgeSubResult += 'Paint ';
   if (edgeCompSub) finalEdgeSubResult += 'Composite ';
 
-  const initResult = finalBlinkInitResult + '\n'
-                   + finalGeckoInitResult + '\n'
-                   + finalWebkitInitResult + '\n'
-                   + finalEdgeInitResult;
+  const initResult = [
+    finalBlinkInitResult,
+    finalGeckoInitResult,
+    finalWebkitInitResult,
+    finalEdgeInitResult
+  ].join('\n');
 
-  const subResult = finalBlinkSubResult + '\n'
-                  + finalGeckoSubResult + '\n'
-                  + finalWebkitSubResult + '\n'
-                  + finalEdgeSubResult;
+  const subResult = [
+    finalBlinkSubResult,
+    finalGeckoSubResult,
+    finalWebkitSubResult,
+    finalEdgeSubResult
+  ].join('\n');
 
   return [prop, line, initResult, subResult];
 }
