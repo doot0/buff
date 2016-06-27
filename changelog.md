@@ -1,3 +1,16 @@
+## 1.3.0 (2016-06-27)
+
+##### Features:
+  - Added .codeclimate.yml, thanks to [@leftees](https://github.com/leftees)
+
+##### Performance:
+  - Minor performance improvement in parser via caching declaration array length
+
+##### Meta:
+  - Added codeclimate badge
+
+---
+
 ## 1.2.0 (2016-06-27)
 
 ##### Features:

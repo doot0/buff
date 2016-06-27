@@ -27,6 +27,8 @@ function identifyMatches(data, stylesheet, callback) {
   const triggerProps = [];
   const declarations = [];
 
+  let declarationsLength = 0;
+
   /* Gather all the props from the trigger update data */
   for (var i = 0; i < dataLength; i++) {
     const triggerProperty = keyData[i];
@@ -38,11 +40,12 @@ function identifyMatches(data, stylesheet, callback) {
     const ruleDeclaration = stylesheetData[ruleIndex].declarations;
     if (stylesheetData[ruleIndex].type == 'rule') {
       declarations.push(ruleDeclaration);
+      declarationsLength++;
     }
   }
 
   /* Iterate through the gathered props and match with trigger data */
-  for (var decIndex = 0; decIndex < declarations.length; decIndex++) {
+  for (var decIndex = 0; decIndex < declarationsLength; decIndex++) {
     const declarationGroup = declarations[decIndex];
 
     declarationGroup.forEach(function(group) {
