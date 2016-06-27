@@ -1,3 +1,10 @@
+## 1.2.0 (2016-06-27)
+
+##### Features:
+  - Added Print/Layout/Composite stats to the output table for each vendor
+
+---
+
 ## 1.1.0 (2016-06-26)
 
 ##### Bugfixes:
