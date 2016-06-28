@@ -23,3 +23,8 @@ ratings:
   - "**.rb"
 exclude_paths:
 - tests/
+- "data/data.json"
+- "changelog.md"
+- "readme.md"
+- "package.json"
+- "buff-logo.svg"
