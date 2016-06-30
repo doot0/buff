@@ -23,7 +23,8 @@ That's it. 😎
 ## Why?
 WIP.
 
-## Planned features
+## Planned features / todos
+ - Write some tests
  - Add support for analysing a stylesheet URL by URL
  - Add support for analysing multiple stylesheets in a row
  - Add support for passing a stylesheet as a string  
